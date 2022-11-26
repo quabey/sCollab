@@ -3,10 +3,9 @@
     import { lists } from "../stores.js";
 
     let list;
-
     let unsubscribe = lists.subscribe(value => {
-    list = value;
-});
+        list = value;
+    });
 </script>
 
 <div class="flex justify-between m-5 border-b-4 pb-2">
