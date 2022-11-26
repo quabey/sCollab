@@ -6,6 +6,7 @@
   import { selectedList } from "./stores";
 </script>
 
+
 <Navbar />
 <div class="absolute bottom-2 right-2 scale-110">
   <MoreButton />
@@ -15,3 +16,5 @@
 {:else}
   <OpenList openListID = {$selectedList}/>
 {/if}
+
+
