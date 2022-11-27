@@ -8,10 +8,10 @@
 
 
 <Navbar />
-<div class="absolute bottom-2 right-2 scale-110">
+<div class="absolute bottom-2 right-2 scale-110 z-10">
   <MoreButton />
 </div>
-{#if $selectedList == 999}
+{#if $selectedList == null}
   <ListList />
 {:else}
   <OpenList openListID = {$selectedList}/>
