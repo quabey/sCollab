@@ -6,8 +6,10 @@
   import { selectedList } from "./stores";
 </script>
 
+<div class="sticky">
+  <Navbar />
+</div>
 
-<Navbar />
 <div class="absolute bottom-2 right-2 scale-110 z-10">
   <MoreButton />
 </div>

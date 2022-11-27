@@ -25,7 +25,13 @@
         </div>
         <div class="flex text-2xl bg-green-400 px-2 rounded-full drop-shadow-lg"> 
             <!-- lenght of lItems with iDone true -->
-            <h2>{list[listID].lItems.filter(item => item.iDone == true).length}/{list[listID].lItems.length}</h2>
+            {#if $lists[listID].lItems.filter(item => item.iDone == true).length != $lists[listID].lItems.length}
+                <h2>
+                    <h2>{list[listID].lItems.filter(item => item.iDone == true).length}/{list[listID].lItems.length}</h2>
+                </h2>
+            {:else}
+                <img src="https://cdn-icons-png.flaticon.com/512/3388/3388530.png" alt="" width="25px">
+            {/if}
         </div>
         
     </div>
