@@ -1,4 +1,4 @@
-import { lists } from "./stores";
+import { lists, users, userID } from "./stores";
 // calculate the amount of items that are done
 function calcDone (list) {
     return list.lItems.filter(item => item.iDone == true).length;
@@ -34,4 +34,17 @@ export function getNotDoneItems () {
         });
     });
     return total;
+}
+
+// get id from username
+export function getID (username) {
+    let id = null;
+    users.subscribe((user) => {
+        user.forEach((u) => {
+            if (u.username == username) {
+                id = u.id;
+            }
+        });
+    });
+    return id;
 }

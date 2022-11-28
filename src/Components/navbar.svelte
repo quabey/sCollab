@@ -5,7 +5,11 @@
     import { getTotalItems } from "../functions.js";
     import { getDoneItems} from "../functions.js";
     // stores
-    import { lists, selectedList } from "../stores.js";
+    import { lists, selectedList, profileState, userID} from "../stores.js";
+
+    function handleProfile (event) {
+        profileState.set(true);
+    }
 </script>
 
 <style>
@@ -25,7 +29,15 @@
             {/if}
         </h2>
     </div>
-    <div class="mr-2">
-        <img src="https://thispersondoesnotexist.com/image" alt="profile" width="40px" class="rounded-full">
-    </div>
+    <button on:click={() => handleProfile()}>
+        <div class="mr-2">
+            {#if $userID != null}
+            <img src="https://thispersondoesnotexist.com/image" alt="profile" width="40px" class="rounded-full">
+            {:else}
+            <img src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" alt="burger" width="40px">
+        {/if}
+            
+        </div>
+    </button>
+    
 </div>

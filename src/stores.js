@@ -5,9 +5,34 @@ import { writable } from "svelte/store";
 // when set to null it means the user is viewing the List overview
 export let selectedList =writable(null);
 
+// User
+export let userID = writable(1);
+
 // States 
-export let profileState = writable(false);
+export let profileState = writable(true);
 export let burgerState = writable(false);
+export let settingsState = writable(false);
+// Settings
+export let buttonRight = writable(true);
+
+export let users = writable([
+    {
+        id: 0,
+        name: "John Doe",
+        username: "johndoe",
+        email: "example@test.com",
+        password: "1234",
+        profileImg: "https://thispersondoesnotexist.com/image"
+    },
+    {
+        id: 1,
+        name: "Jane Doe",
+        username: "janedoe",
+        email: "test@example.com",
+        password: "1234",
+        profileImg: "https://thispersondoesnotexist.com/image"
+    }   
+]);
 
 
 export let lists = writable([
