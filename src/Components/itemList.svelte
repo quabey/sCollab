@@ -1,6 +1,7 @@
 <script> 
     export let listID = 0;
     import { lists } from "../stores.js";
+    import AddItem from "./addItem.svelte";
 
     let list;
     let unsubscribe = lists.subscribe(value => {
@@ -37,4 +38,3 @@
     </div>
     
 </div>
-

@@ -6,6 +6,7 @@
   import OpenList from "./Components/openList.svelte";
   import Profile from "./Components/profile.svelte";
   import Settings from "./Components/settings.svelte";
+  import AddItem from "./Components/addItem.svelte";
 
   // Stores
   import { selectedList, profileState, settingsState } from "./stores";
@@ -36,5 +37,5 @@
   <OpenList openListID = {$selectedList}/>
 {/if}
 
-
+<AddItem />
 

@@ -30,7 +30,7 @@
             <div class="mr-5 bg-green-400 text-2xl rounded-full px-2 drop-shadow-lg">{item.iAmount}</div>
             
             <label class="container scale-125 drop-shadow-lg">
-                <input type="checkbox" bind:checked={$lists[openListID].lItems[item.iID].iDone}> 
+                <input type="checkbox" bind:checked={$lists[openListID].lItems[item.iID].iDone}>   
                 <span class="checkmark"></span>
             </label>
         </div>

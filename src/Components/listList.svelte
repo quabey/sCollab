@@ -2,14 +2,10 @@
     // component
     import ItemList from "./itemList.svelte";
     // functions 
-    import { getTotalItems } from "../functions.js";
-    import { getDoneItems} from "../functions.js";
+    import { getTotalItems, getDoneItems } from "../functions.js";
+    import { handleUserID, handleSelectedList } from "../handler.js";
     // stores
     import { lists, selectedList } from "../stores.js";
-
-    function handleClick (id) {
-        selectedList.set(id);
-    }
 </script>
 
 <div class="">
@@ -24,7 +20,7 @@
     </div>
 
     {#each $lists as list}
-    <button class="w-full" on:click={() => handleClick(list.lID)}>
+    <button class="w-full" on:click={() => handleSelectedList(list.lID)}>
         <ItemList listID={list.lID} />
     </button>
     {/each}

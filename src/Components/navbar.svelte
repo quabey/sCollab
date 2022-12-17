@@ -2,8 +2,7 @@
     // component
     import ItemList from "./itemList.svelte";
     // functions 
-    import { getTotalItems } from "../functions.js";
-    import { getDoneItems} from "../functions.js";
+    import { getTotalItems, getDoneItems } from "../functions.js";
     // stores
     import { lists, selectedList, profileState, userID} from "../stores.js";
 

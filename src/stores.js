@@ -9,9 +9,10 @@ export let selectedList =writable(null);
 export let userID = writable(1);
 
 // States 
-export let profileState = writable(true);
+export let profileState = writable(false);
 export let burgerState = writable(false);
 export let settingsState = writable(false);
+export let appSettingsState = writable(false);
 // Settings
 export let buttonRight = writable(true);
 
