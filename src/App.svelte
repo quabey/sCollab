@@ -28,14 +28,12 @@
   <Navbar />
 </div>
 
-<div class="absolute bottom-2 right-2 scale-110 z-10">
-  <MoreButton />
+<div class="fixed bottom-2 right-2 scale-110 z-10">
+  <AddItem />
 </div>
 {#if $selectedList == null}
   <ListList />
 {:else}
   <OpenList openListID = {$selectedList}/>
 {/if}
-
-<AddItem />
 
