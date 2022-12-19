@@ -7,24 +7,30 @@
   import Profile from "./Components/profile.svelte";
   import Settings from "./Components/settings.svelte";
   import AddItem from "./Components/addItem.svelte";
+  import ListSettings from "./Components/listSettings.svelte";
 
   // Stores
-  import { selectedList, profileState, settingsState } from "./stores";
+  import { selectedList, profileState, settingsState, listSettingState } from "./stores";
 </script>
 
 {#if $settingsState}
-<div class="z-10 absolute h-screen w-screen"><Settings /></div>
+<div class="z-10 absolute h-screen w-screen mt-20"><Settings /></div>
+  
+{/if}
+
+{#if $listSettingState}
+<div class="z-10 absolute h-screen w-screen mt-20"><ListSettings /></div>
   
 {/if}
 
 
 {#if $profileState}
-<div class="absolute h-screen w-screen z-10">
+<div class="absolute h-screen w-screen z-10 animate-in slide-in-from-top duration-700 mt-20">
   <Profile />
 </div>
 {/if}
 
-<div class="sticky">
+<div class="sticky z-9">
   <Navbar />
 </div>
 
@@ -32,8 +38,13 @@
   <AddItem />
 </div>
 {#if $selectedList == null}
+<div class="animate-in slide-in-from-bottom duration-700">
   <ListList />
+</div>
 {:else}
-  <OpenList openListID = {$selectedList}/>
+  <div class="">
+    <OpenList openListID = {$selectedList}/>
+  </div>
+  
 {/if}
 

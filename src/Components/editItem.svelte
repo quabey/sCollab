@@ -1,0 +1,60 @@
+<script>
+    import { editState, selectedItem, selectedList, lists } from "../stores";
+
+    function handleEditPop (event) {
+
+        editState.set(false);
+        selectedItem.set(null);
+    }
+
+</script>
+
+
+<div class="w-full absolute h-full backdrop-blur-sm bg-white/30 z-0">
+    <div class="flex justify-center content-center ">
+        <div class="z-10 w-4/5 bg-white rounded-2xl mt-10 drop-shadow-lg p-5 flex flex-col">
+            <div class="flex justify-between">
+                <h1 class="text-3xl w-auto bg-green-400">Edit: {$lists[$selectedList].lItems[$selectedItem].iName}</h1>
+                <button on:click={() => handleEditPop()}>
+                    <div class="bg-green-400 rounded-full ">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png" alt="" width="25px">
+                    </div>
+                </button>
+            </div>
+        
+            <!-- Options -->
+            <div class="flex flex-col gap-3 mt-4">
+                <div class="flex flew-row">
+                    <div class="bg-green-400 mr-2 text-lg">Name: </div>
+                    <div class="border-green-400 border-2">
+                        <input type="text" bind:value={$lists[$selectedList].lItems[$selectedItem].iName}>
+                    </div>
+                </div>
+                <div class="flex flew-row">
+                    <div class="bg-green-400 mr-2 text-lg">Amount: </div>
+                    <div class="border-green-400 border-2 w-[130px]">
+                        <input type="number" bind:value={$lists[$selectedList].lItems[$selectedItem].iAmount}>
+                    </div>
+                </div>
+                <div class="flex flew-row">
+                    <div class="bg-green-400 mr-10 text-lg">
+                        Done: 
+                    </div>
+                    <label class="container scale-125 drop-shadow-lg">
+                        <input type="checkbox" bind:checked={$lists[$selectedList].lItems[$selectedItem].iDone}>   
+                        <span class="checkmark"></span>
+                    </label>
+                </div> 
+            </div>
+            <!-- About -->
+            {#if $lists[$selectedList].lItems[$selectedItem].iCreatedBy != null}
+                <div class="flex flex-row mt-10 bg-transparent">
+                    <div class="bg-green-400 mr-2 text-lg">Created by</div>
+                    <div class="border-green-400 border-2 w-[150px] bg-transparent">
+                        {$lists[$selectedList].lItems[$selectedItem].iCreatedBy}
+                    </div>
+                </div>
+            {/if}
+        </div>
+    </div>
+</div>

@@ -3,7 +3,8 @@ import { writable } from "svelte/store";
 // stores the currently selected list
 // when set to 999 it means that the user is viewing the "All" list
 // when set to null it means the user is viewing the List overview
-export let selectedList =writable(null);
+export let selectedList =writable(0);
+export let selectedItem = writable(0);
 
 // User
 export let userID = writable(1);
@@ -12,18 +13,25 @@ export let userID = writable(1);
 export let profileState = writable(false);
 export let burgerState = writable(false);
 export let settingsState = writable(false);
-export let appSettingsState = writable(false);
+export let editState = writable(false);
+export let listSettingState = writable(true);
+export let memberState = writable(false);
 // Settings
 export let buttonRight = writable(true);
+
+// search 
+export let searchState = writable(false);
+export let searchQuery = writable("");
 
 export let users = writable([
     {
         id: 0,
-        name: "John Doe",
-        username: "johndoe",
+        name: "Admin",
+        username: "admin",
         email: "example@test.com",
         password: "1234",
-        profileImg: "https://thispersondoesnotexist.com/image"
+        profileImg: "https://thispersondoesnotexist.com/image",
+        uLists: []
     },
     {
         id: 1,
@@ -31,8 +39,18 @@ export let users = writable([
         username: "janedoe",
         email: "test@example.com",
         password: "1234",
-        profileImg: "https://thispersondoesnotexist.com/image"
-    }   
+        profileImg: "https://thispersondoesnotexist.com/image",
+        uLists: [1, 2, 3]
+    },
+    {
+        id: 2,
+        name: "John Doe",
+        username: "johndoe",
+        email: "test@example.com",
+        password: "1234",
+        profileImg: "https://thispersondoesnotexist.com/image",
+        uLists: [0, 1, 2]
+    }  
 ]);
 
 
@@ -41,13 +59,15 @@ export let lists = writable([
         lID: 0,
         lName: "Personal",
         lIcon: "https://cdn-icons-png.flaticon.com/512/151/151917.png",
+        lMembers: [1, 2],
         lItems: [
             {
                 iID: 0,
                 iName: "Milk",
                 iDone: false,
                 iAmount: 2,
-                iIcon: "https://cdn-icons-png.flaticon.com/512/2662/2662503.png"
+                iIcon: "https://cdn-icons-png.flaticon.com/512/2662/2662503.png",
+                iCreatedBy: "janedoe"
             },
 
             {
@@ -216,6 +236,7 @@ export let lists = writable([
         lID: 1,
         lName: "Work",
         lIcon: "https://cdn-icons-png.flaticon.com/512/151/151917.png",
+        lMembers: [1, 2],
         lItems: [
             {
                 iID: 0,
@@ -246,23 +267,7 @@ export let lists = writable([
         lID: 2,
         lName: "WG",
         lIcon: "https://cdn-icons-png.flaticon.com/512/151/151917.png",
-        lMembers: [
-            {
-                mID: 0,
-                mName: "Max",
-                mIcon: "https://thispersondoesnotexist.com/image"
-            },
-            {
-                mID: 1,
-                mName: "Lukas",
-                mIcon: "https://thispersondoesnotexist.com/image"
-            },
-            {
-                mID: 2,
-                mName: "Lena",
-                mIcon: "https://thispersondoesnotexist.com/image"
-            },
-        ],
+        lMembers: [1, 2],
         lItems: [
             {
                 iID: 0,

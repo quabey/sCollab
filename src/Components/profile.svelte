@@ -1,5 +1,5 @@
 <script>
-    import { users, userID, profileState, buttonRight } from "../stores.js";
+    import { users, userID, profileState, buttonRight, selectedItem, selectedList, searchQuery } from "../stores.js";
 
     //functions
     import { getID } from "../functions.js";
@@ -12,6 +12,9 @@
         
         profileState.set(false);
         userID.set(null);
+        selectedItem.set(null);
+        selectedList.set(null);
+        searchQuery.set("");
     }
 
     function handleLogin (username) {
@@ -65,6 +68,9 @@
                 <div class=" flex ">
                     <h1 class="w-auto flex">Password: <h1 class="bg-green-400">{$users[$userID].password}</h1></h1>
                 </div>
+                <div class="flex">
+                    <h1 class="w-auto flex">Lists: <h1 class="bg-green-400">{$users[$userID].uLists}</h1></h1>
+                </div>
             </div>
             <div class="flex content-center justify-center mt-3">
                 <button class="bg-green-400 rounded-md p-2" on:click={() => handleLogout()}>
@@ -87,10 +93,10 @@
                 <h2>Login with username</h2>
                 <input class="border-2 border-green-400" type="text" bind:value={loginName}>
                 <button on:click={() => handleLogin(loginName)}>
-                <div class="bg-green-400 rounded-lg mt-3">
-                    Login
-                </div>
-            </button>
+                    <div class="bg-green-400 rounded-full mt-3 p-1">
+                        Login
+                    </div>
+                </button>
             </div>
             {/if}
         </div>
