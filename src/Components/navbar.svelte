@@ -4,7 +4,7 @@
     // functions 
     import { getTotalItems, getDoneItems } from "../functions.js";
     // stores
-    import { lists, selectedList, profileState, userID, settingsState, listSettingState} from "../stores.js";
+    import { users, lists, selectedList, profileState, userID, settingsState, listSettingState} from "../stores.js";
 
     function handleProfile (event) {
         profileState.set(true);
@@ -39,7 +39,7 @@
     <button on:click={() => handleProfile()}>
         <div class="mr-2">
             {#if $userID != null}
-            <img src="https://thispersondoesnotexist.com/image" alt="profile" width="40px" class="rounded-full">
+            <img src="{$users[$userID].profileImg}" alt="profile" width="40px" class="rounded-full">
             {:else}
             <img src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" alt="logged out" width="40px">
         {/if}

@@ -42,7 +42,7 @@
             <div class="flex content-center justify-center mt-3">
                 <button class="bg-green-400 rounded-md p-2" on:click={() => handleMember()}>
                     <div class="">
-                        <h1>Edit Member</h1>
+                        <h1>Edit Members</h1>
                     </div>
                 </button>
             </div>
