@@ -1,6 +1,6 @@
 <script>
     // stores
-    import { lists, selectedList, buttonRight, settingsState, users, memberState, listSettingState } from "../stores.js";
+    import { lists, selectedList, buttonRight, settingsState, users, memberState, listSettingState, alertState } from "../stores.js";
     import { searchQuery, searchState } from "../stores.js";
     // components
 
@@ -21,6 +21,10 @@
 
     function handleSearch () {
         searchState.set(!$searchState);
+    }
+
+    function handleAlert () {
+        alertState.set(true);
     }
 </script>
 
@@ -70,11 +74,12 @@
     {/if}
 
     
-    <!-- Sort Button -->
-    <div class="flex text-xl bg-white rounded-full p-2 ml-2 gap-2 drop-shadow-lg">
-        <h2>Sort</h2>
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25243.png" alt="" width="20px">
-    </div>
+    <!-- Alert Button -->
+    <button on:click={() => handleAlert()}>
+        <div class="flex text-xl bg-white rounded-full p-2 ml-2 gap-2 drop-shadow-lg">
+            <h2>Alert</h2>
+        </div>
+    </button>
     
         {#if $buttonRight}
     <div class="mr-3 p-2 ">

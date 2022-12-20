@@ -1,12 +1,13 @@
 <script>
     // stores
-    import { lists, profileState, editState, selectedItem, memberState} from "../stores.js";
+    import { lists, profileState, editState, selectedItem, memberState, alertState} from "../stores.js";
     import { searchState, searchQuery } from "../stores.js";
     // components
     import ItemList from "./itemList.svelte";
     import ListMenu from "./listMenu.svelte";
     import EditItem from "./editItem.svelte";
     import Member from "./member.svelte";
+    import Alert from "./alert.svelte";
 
 
     let list;
@@ -31,6 +32,10 @@
 
 {#if $memberState}
     <div class="z-10 fixed h-screen w-screen"><Member /></div>
+{/if}
+
+{#if $alertState}
+    <div class="z-10 fixed h-screen w-screen"><Alert /></div>
 {/if}
 
 <div class="">

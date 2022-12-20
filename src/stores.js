@@ -7,7 +7,7 @@ export let selectedList =writable(null);
 export let selectedItem = writable(null);
 
 // User
-export let userID = writable(0);
+export let userID = writable(null);
 
 // States 
 export let profileState = writable(false);
@@ -16,6 +16,7 @@ export let settingsState = writable(false);
 export let editState = writable(false);
 export let listSettingState = writable(false);
 export let memberState = writable(false);
+export let alertState = writable(false);
 // Settings
 export let buttonRight = writable(true);
 
