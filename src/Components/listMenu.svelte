@@ -40,19 +40,18 @@
     {/if}
 
     <div class="flex drop-shadow-lg h-min">
-        <button on:click={() => handleSearch()}>
-            <div class="my-2 ml-2 bg-white rounded-l-full p-2 flex">
-                <!-- Search -->
-                <img src="https://cdn-icons-png.flaticon.com/512/151/151773.png" alt="search" width="30px">
-            </div>
-        </button>
         <button on:click={() => handleSettings()}>
-            <div class="my-2 mr-2 bg-white rounded-r-full  p-2">
+            <div class=" my-2 ml-2 bg-white rounded-l-full p-2 flex">
                 <!-- Settings -->
                 <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="search" width="30px">
             </div>
         </button>
-        
+        <button on:click={() => handleSearch()}>
+            <div class="my-2 mr-2 bg-white rounded-r-full p-2 pr-3">
+                <!-- Search -->
+                <img src="https://cdn-icons-png.flaticon.com/512/151/151773.png" alt="search" width="30px">
+            </div>
+        </button>
     </div>
 
     

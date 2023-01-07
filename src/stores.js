@@ -31,7 +31,7 @@ export let users = writable([
         username: "a",
         email: "example@test.com",
         password: "1234",
-        profileImg: "https://play-lh.googleusercontent.com/9eLtrr71OlwVix0Nl7NLBFNqp28atYc1b8FGJeI2cxUzX1ASOS4pv4PoTOlPNO4SQcs=w240-h480-rw",
+        profileImg: "https://www.shutterstock.com/image-vector/user-icon-vector-260nw-393536320.jpg",
         uLists: []
     },
     {

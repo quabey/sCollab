@@ -26,14 +26,14 @@
             <div class="flex flex-col gap-3 mt-4">
                 <div class="flex flew-row">
                     <div class="bg-green-400 mr-2 text-lg">Name: </div>
-                    <div class="border-green-400 border-2">
-                        <input type="text" bind:value={$lists[$selectedList].lItems[$selectedItem].iName}>
+                    <div class="border-green-400 border-2 w-2/3 ">
+                        <input type="text" class="bg-transparent" bind:value={$lists[$selectedList].lItems[$selectedItem].iName}>
                     </div>
                 </div>
                 <div class="flex flew-row">
                     <div class="bg-green-400 mr-2 text-lg">Amount: </div>
-                    <div class="border-green-400 border-2 w-[130px]">
-                        <input type="number" bind:value={$lists[$selectedList].lItems[$selectedItem].iAmount}>
+                    <div class="border-green-400 border-2 w-[30px] bg-transperent">
+                        <input type="number" class="bg-none bg-transparent" bind:value={$lists[$selectedList].lItems[$selectedItem].iAmount}>
                     </div>
                 </div>
                 <div class="flex flew-row">
@@ -50,11 +50,17 @@
             {#if $lists[$selectedList].lItems[$selectedItem].iCreatedBy != null}
                 <div class="flex flex-row mt-10 bg-transparent">
                     <div class="bg-green-400 mr-2 text-lg">Created by</div>
-                    <div class="border-green-400 border-2 w-[150px] bg-transparent">
+                    <div class="border-green-400 border-2 w-min bg-transparent">
                         {$lists[$selectedList].lItems[$selectedItem].iCreatedBy}
                     </div>
                 </div>
             {/if}
+            <!-- Save Button -->
+            <div class="flex justify-center m-5">
+                <button class="bg-green-400 rounded-2xl p-2 w-1/2" on:click={() => handleEditPop()}>
+                    Save
+                </button>
+            </div>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
     // functions 
     import { getTotalItems, getDoneItems } from "../functions.js";
     // stores
-    import { users, lists, selectedList, profileState, userID, settingsState, listSettingState} from "../stores.js";
+    import {users, lists, selectedList, profileState, userID, settingsState, listSettingState} from "../stores.js";
 
     function handleProfile (event) {
         profileState.set(true);
@@ -32,7 +32,7 @@
             {#if $selectedList == null}
                 Your lists
             {:else}
-                {$lists[$selectedList].lName}
+                <button on:click={() => listSettingState.set(true)}>{$lists[$selectedList].lName}</button>
             {/if}
         </h2>
     </div>
